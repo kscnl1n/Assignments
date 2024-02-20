@@ -34,7 +34,8 @@ class Employee
     // Ensure you specify the domain of the class-
     // Since we will be using the functions within it in the main
     // function, we must set this to public.
-    // If we were to set this to private, only members of the class could access it.
+    // If we were to set this to private, only members 
+    // of the class could access it.
 
     // DATA MEMBERS
     // a. Data members are name, age, serviceYear, salary.
