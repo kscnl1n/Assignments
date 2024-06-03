@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/slyth/OneDrive/Desktop/Lone Star 2023-2024/Spring 2024/COSC 1437/Assignments/COSC 1437",
-      "program": "c:/Users/slyth/OneDrive/Desktop/Lone Star 2023-2024/Spring 2024/COSC 1437/Assignments/COSC 1437/build/Debug/outDebug",
+      "cwd": ".",
+      "program": "build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
