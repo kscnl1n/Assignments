@@ -1,5 +1,50 @@
+// Program by Kaylee Scanlin
+// COSC 2436
+// Project name: Project 2/Student Enrollment Management System
+
+// The purpose of the following program is to create a student enrollment system for a community college utilizing
+// every concept we have learned over the past semester in Data Structures & Algorithms.
+
+// ASSIGNMENT INSTRUCTIONS
+// The requirements for the program are numbered. To see where they are fulfilled in the code,
+// please reference these numbers throughout the code.
+
+// You are tasked with designing and implementing a Student Enrollment Management System using Java. The system should
+// utilize various data structures such as Hash, Map, and Priority Queue to efficiently manage student enrollment,
+// course registration, and course scheduling.
+
+// REQUIREMENTS:
+//(1) Student Class: Create a Student class with attributes such as studentId, name, age, major, and any other relevant
+// information. Implement appropriate constructors, getters, and setters.
+//(2) Course Class: Create a Course class with attributes such as courseId, courseName, instructor, capacity,
+// enrolledStudents, and any other relevant information. Implement appropriate constructors, getters, and setters.
+
+// ENROLLMENT SYSTEM:
+//Implement a Hash-based data structure to store student information efficiently.
+//Implement a Map-based data structure to store course information efficiently.
+//Implement a Priority Queue to manage course scheduling based on the number of enrolled students.
+
+// FUNCTIONALITY:
+//Allow students to enroll in courses. Check for course capacity before enrollment.
+//Allow students to drop courses.
+//Allow administrators to add new courses, remove courses, or modify course details.
+//Ensure that enrolled students are prioritized in course scheduling based on the number of enrolled students.
+// Another word, ensure that the courses with the most student interest (as indicated by enrollment
+// numbers (you can assign that)) are given preference in the scheduling process
+//Implement methods to display student details, course details, and enrollment status.
+
+// USER INTERFACE (Optional):
+//Develop a simple command-line interface (CLI) or graphical user interface (GUI) for users to interact with the system.
+// This interface should provide options for enrolling in courses, dropping courses, viewing course details, and managing
+// course scheduling.
+
+// TESTING AND DOCUMENTATION:
+//Write test cases to ensure the correctness of your implementation.
+//Provide comprehensive documentation/commenting
+
 import java.util.*;
 
+// (1) STUDENT CLASS 
 class Student {
     private String studentId; // Private field to store student ID
     private String name; // Private field to store student name
@@ -76,6 +121,7 @@ class Student {
     }
 }
 
+// (2) COURSE CLASS
 class Module {
     private String courseId; // Private field to store module ID
     private String courseName; // Private field to store module name
@@ -477,3 +523,4 @@ public class userInterface {
         }
     }
 }
+
