@@ -1,0 +1,124 @@
+REPORT
+
+INTRODUCTION
+This program was a very challenging one to implement- I personally had a difficult time wrapping my head around the concept of HashMaps, but I
+felt through the synthesis of this program that I was able to grasp the most difficult aspects of Java programming. In this report, I will detail the thought process and implementation of a Student Enrollment Management System using Java. The system is designed to efficiently manage student enrollment, course registration, and course scheduling using various data structures such as HashMaps, Maps, and Priority Queues. I will explain each Java concept used in the program, its implementation, rationale for its choice, and how it contributes to the overall efficiency of the system.
+
+CONCEPTS
+Classes and Objects:
+Implementation: Classes like Student, Module, and RegistrationSystem are used to represent entities within the system.
+Rationale: Classes encapsulate data (attributes) and behavior (methods) related to students, modules, and the registration system, adhering to object-oriented principles for modularity and reusability.
+
+Constructors:
+Implementation: Constructors in Student and Module classes initialize object instances with required attributes.
+Rationale: Constructors ensure objects are instantiated correctly, initializing their state upon creation, which is essential for maintaining data integrity and consistency.
+
+Encapsulation (Private Fields and Accessors):
+Implementation: Private fields (private access modifiers) in Student and Module classes are accessed through public getter and setter methods.
+Rationale: Encapsulation hides internal state and restricts direct access to fields, promoting data security, and enabling controlled manipulation through methods.
+
+HashMap:
+Implementation: Used in RegistrationSystem to store students (students HashMap) and modules (modules HashMap).
+Rationale: HashMap provides fast O(1) average-time complexity for key-value operations, making it suitable for efficient retrieval and management of student and module data.
+
+Map:
+Implementation: A Map-based data structure (modules HashMap) is used to store courses efficiently.
+Rationale: Maps allow storing key-value pairs, facilitating efficient lookup and manipulation of course details (courseId to Module mapping in this case).
+
+PriorityQueue:
+Implementation: Utilized in RegistrationSystem as moduleQueue to manage modules based on enrollment size.
+Rationale: PriorityQueue orders elements based on natural order or a custom comparator. It ensures that modules with more enrolled students are scheduled first, aligning with the requirement to prioritize courses by student interest.
+
+Method Overriding (toString()):
+Implementation: Overridden in Student and Module classes to provide meaningful string representations of objects.
+Rationale: toString() method override provides a customized string representation for objects, facilitating easy debugging and meaningful output in logs or user interfaces.
+
+Java.util library:
+Implementation: Used in Main class to interact with users via command-line interface (CLI).
+Rationale: Scanner allows reading user input from standard input (keyboard), enabling interactive communication between the user and the program, essential for a user-friendly interface.
+
+IMPLEMENTATION DETAILS
+Student Class
+The Student class encapsulates attributes (studentId, name, age, major) and methods (enrollModule(), unenrollModule(), getters, setters) necessary to manage student data. Each student is associated with enrolled modules stored in a List<Module>.
+
+java
+Copy code
+class Student {
+    private String studentId;
+    private String name;
+    private int age;
+    private String major;
+    private List<Module> enrolledModules;
+
+    // Constructors, getters, setters, enrollModule(), unenrollModule() methods omitted for brevity
+}
+
+Constructors: Initialize student attributes upon object creation.
+
+Encapsulation: Private fields with public getters/setters ensure controlled access to student data.
+
+List<Module> enrolledModules: Stores modules the student is enrolled in, supporting operations like enrollment and unenrollment.
+
+Module Class
+The Module class represents a course with attributes (courseId, courseName, instructor, capacity, enrolledStudents) and methods (registerStudent(), deregisterStudent(), getters, setters).
+
+java
+Copy code
+class Module {
+    private String courseId;
+    private String courseName;
+    private String instructor;
+    private int capacity;
+    private List<Student> enrolledStudents;
+
+    // Constructors, getters, setters, registerStudent(), deregisterStudent() methods omitted for brevity
+}
+PriorityQueue<Module> moduleQueue: Manages modules based on enrollment size, ensuring modules with more enrolled students are scheduled first.
+RegistrationSystem Class
+The RegistrationSystem class coordinates student enrollment, course management, and scheduling using HashMaps (students, modules) and a PriorityQueue (moduleQueue).
+
+java
+Copy code
+class RegistrationSystem {
+    private Map<String, Student> students;
+    private Map<String, Module> modules;
+    private PriorityQueue<Module> moduleQueue;
+
+    // Constructors, addStudent(), addModule(), removeModule(), updateModuleDetails() methods omitted for brevity
+}
+
+HashMap<String, Student> students: Efficiently stores students by studentId, facilitating quick lookup and management operations.
+HashMap<String, Module> modules: Stores modules by courseId, enabling fast retrieval and modification of course details.
+PriorityQueue<Module> moduleQueue: Orders modules based on enrollment size, ensuring efficient course scheduling as per student interest.
+
+PROGRAM FUNCTIONALITY
+The system allows various functionalities as per the requirements:
+Student Enrollment: Students can enroll in modules, checking for capacity before enrollment.
+Course Management: Administrators can add, remove, or modify course details.
+Course Scheduling: Modules are scheduled based on the number of enrolled students, managed by PriorityQueue.
+
+USER INTERFACE IMPLEMENTATION (UI)
+The command-line interface (CLI) provides a straightforward interaction platform:
+
+java
+Copy code
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        RegistrationSystem registrationSystem = new RegistrationSystem();
+
+        // Main program logic omitted for brevity
+    }
+}
+
+Scanner: Facilitates user input handling, allowing students and administrators to interact with the system.
+
+TESTING & DOCUMENTATION
+Testing: Unit tests are written to validate each functionality, ensuring correctness and reliability of the implementation.
+Documentation: Comprehensive comments and documentation within the code explain each method's purpose, input parameters, and expected behavior.
+
+FINAL THOUGHTS
+This was a great example of a project that a student might put on their resume to demonstrate a thorough understanding of both object-oriented programming and Java as a whole. Computer Science 3, or Data Structures and Algorithms, is a difficult class because not only are the underlying concepts (the data structures) difficult to learn, but their implementation must also be executed well with programming languages such as Java and C++. Although my background is in the C-language family, in the process of learning a language as different from the as Java, I gained a deeper understanding of programming concepts as a whole, and began to see how more experienced programmers recycled the same concepts between different implementation languages.
+
+The Student Enrollment Management System project leverages Java's object-oriented features, data structures (HashMaps, PriorityQueue), and input handling (Scanner) to efficiently manage student enrollment and course scheduling. Each Java concept used—classes, constructors, encapsulation, HashMaps, Maps, PriorityQueue, method overriding, and Scanner—plays a crucial role in ensuring the system's functionality, efficiency, and maintainability. By adhering to best practices in software design and implementation, the system meets the requirements effectively, providing a robust platform for managing student enrollment and course administration.
+
